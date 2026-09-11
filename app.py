@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def check_password():
     """Retorna True se o usuário estiver autenticado com a senha correta."""
     # Obtém a senha configurada nos Secrets do Streamlit ou usa a senha padrão
-    senha_correta = st.secrets.get("PASSWORD", "xandao")
+    senha_correta = st.secrets.get("PASSWORD", "Xandao2019ryo!")
 
     if "authenticated" not in st.session_state:
         st.session_state["authenticated"] = False
