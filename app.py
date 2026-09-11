@@ -17,6 +17,43 @@ st.set_page_config(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # -----------------------------------------------------------------------------
+# AUTENTICAÇÃO / TELA DE LOGIN
+# -----------------------------------------------------------------------------
+def check_password():
+    """Retorna True se o usuário estiver autenticado com a senha correta."""
+    # Obtém a senha configurada nos Secrets do Streamlit ou usa a senha padrão
+    senha_correta = st.secrets.get("PASSWORD", "Ryo2026!")
+
+    if "authenticated" not in st.session_state:
+        st.session_state["authenticated"] = False
+
+    if st.session_state["authenticated"]:
+        return True
+
+    # Tela de Login centralizada
+    _, col_login, _ = st.columns([1, 2, 1])
+    with col_login:
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.title("🔒 Acesso Restrito")
+        st.subheader("CVM Remuneração - Monitor de Administradores")
+        st.caption("Insira a senha de acesso para visualizar o dashboard.")
+
+        senha_input = st.text_input("Senha", type="password", key="password_input")
+        btn_login = st.button("Entrar", use_container_width=True)
+
+        if btn_login:
+            if senha_input == senha_correta:
+                st.session_state["authenticated"] = True
+                st.rerun()
+            else:
+                st.error("❌ Senha incorreta. Tente novamente.")
+
+    return False
+
+if not check_password():
+    st.stop()
+
+# -----------------------------------------------------------------------------
 # Carregamento e Caching de Dados
 # -----------------------------------------------------------------------------
 @st.cache_data(ttl=300)
@@ -53,8 +90,15 @@ df_prev_real = load_csv_data("monitor_previsto_realizado")
 if df_mercado.empty:
     st.warning("Nenhum dado encontrado em `monitor_mercado.csv`. Execute a coleta primeiro para gerar a base de dados.")
 
-# --- BARRA LATERAL (FILTROS) ---
+# --- BARRA LATERAL (FILTROS E LOGOUT) ---
 st.sidebar.header("🔍 Filtros")
+
+# Botão de Logout na Sidebar
+if st.sidebar.button("🔒 Sair / Bloquear"):
+    st.session_state["authenticated"] = False
+    st.rerun()
+
+st.sidebar.markdown("---")
 
 # Filtro de Setor
 setores_disp = ["Todos"]
