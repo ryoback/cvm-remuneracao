@@ -1,0 +1,10 @@
+# Cache CVM e Python
+.cvm_cache/
+__pycache__/
+*.pyc
+
+# IDE e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

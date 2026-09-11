@@ -1,0 +1,136 @@
+{
+  "_leia_me": [
+    "Carteira monitorada, agrupada por setor. Para incluir uma companhia basta",
+    "acrescentar um item ao setor desejado. Cada item aceita:",
+    "  nome    (obrigatorio) rotulo curto que aparece no dashboard",
+    "  ticker  papel na B3, usado para o preco (e para achar o CNPJ pelo FCA)",
+    "  tickers lista extra de papeis so para preco, quando o FCA nao os lista",
+    "  cnpj    identificador na CVM - use quando o papel saiu de bolsa ou trocou",
+    "          de codigo; o CNPJ e a unica chave que nao muda (Eletrobras virou",
+    "          Axia Energia, CCR virou Motiva, Guararapes trocou GUAR3 por RIAA3)",
+    "  mercado 'US' marca companhia sem registro na CVM: fica de fora da coleta",
+    "Informe ticker e cnpj juntos quando o ticker nao consta mais do FCA atual."
+  ],
+
+  "Industrials": [
+    {"nome": "GPS",        "ticker": "GGPS3"},
+    {"nome": "WEG",        "ticker": "WEGE3"}
+  ],
+
+  "Retail": [
+    {"nome": "Mercado Livre", "mercado": "US"},
+    {"nome": "Shopee",        "mercado": "US"},
+    {"nome": "C&A",           "ticker": "CEAB3"},
+    {"nome": "Renner",        "ticker": "LREN3"},
+    {"nome": "Vivara",        "ticker": "VIVA3"},
+    {"nome": "Smartfit",      "ticker": "SMFT3"},
+    {"nome": "Guararapes",    "ticker": "RIAA3"},
+    {"nome": "Assai",         "ticker": "ASAI3"},
+    {"nome": "Grupo Mateus",  "ticker": "GMAT3"},
+    {"nome": "Magalu",        "ticker": "MGLU3"},
+    {"nome": "Raia Drogasil", "ticker": "RADL3"},
+    {"nome": "Pague Menos",   "ticker": "PGMN3"},
+    {"nome": "Azzas",         "ticker": "AZZA3"},
+    {"nome": "Panvel",        "ticker": "PNVL3"}
+  ],
+
+  "Consumo": [
+    {"nome": "Arcos Dorados", "mercado": "US"},
+    {"nome": "Ambev",         "ticker": "ABEV3"},
+    {"nome": "Alpargatas",    "ticker": "ALPA4"},
+    {"nome": "Natura",        "ticker": "NATU3"},
+    {"nome": "Carrefour",     "cnpj": "75.315.333/0001-09",
+     "obs": "Atacadao S.A.; CRFB3 saiu de bolsa, sem preco"}
+  ],
+
+  "Malls": [
+    {"nome": "Iguatemi",  "ticker": "IGTI11"},
+    {"nome": "Multiplan", "ticker": "MULT3"},
+    {"nome": "Allos",     "ticker": "ALOS3"}
+  ],
+
+  "Metals": [
+    {"nome": "Vale",   "ticker": "VALE3"},
+    {"nome": "Gerdau", "ticker": "GGBR4"}
+  ],
+
+  "Pulp": [
+    {"nome": "Suzano", "ticker": "SUZB3"},
+    {"nome": "Klabin", "ticker": "KLBN11", "tickers": ["KLBN3", "KLBN4"],
+     "obs": "o FCA so lista a unit; ON/PN informadas para o preco"}
+  ],
+
+  "Financials": [
+    {"nome": "Stone",           "mercado": "US"},
+    {"nome": "Itau",            "ticker": "ITUB4"},
+    {"nome": "Bradesco",        "ticker": "BBDC4"},
+    {"nome": "Santander",       "ticker": "SANB11"},
+    {"nome": "Banco do Brasil", "ticker": "BBAS3"},
+    {"nome": "BTG Pactual",     "ticker": "BPAC11", "cnpj": "30.306.294/0001-45",
+     "tickers": ["BPAC3", "BPAC5"], "obs": "codigo do BTG vem corrompido no FCA"},
+    {"nome": "XP",              "cnpj": "16.838.421/0001-26",
+     "obs": "XP Investimentos S.A.; a listada e a XP Inc. no Nasdaq"},
+    {"nome": "Cielo",           "cnpj": "01.027.058/0001-91",
+     "obs": "fechou capital em 2024, sem preco"},
+    {"nome": "Nubank",          "cnpj": "24.410.913/0001-44",
+     "obs": "Nu Holdings Ltd.; listada no NYSE"},
+    {"nome": "Inter",           "cnpj": "00.416.968/0001-01",
+     "obs": "Banco Inter S.A.; migrou para a Inter&Co no Nasdaq"}
+  ],
+
+  "RealEstate": [
+    {"nome": "Tenda",      "ticker": "TEND3"},
+    {"nome": "Direcional", "ticker": "DIRR3"},
+    {"nome": "MRV",        "ticker": "MRVE3"},
+    {"nome": "Cyrela",     "ticker": "CYRE3"}
+  ],
+
+  "Oil": [
+    {"nome": "Petrobras",      "ticker": "PETR4"},
+    {"nome": "PetroRio",       "ticker": "PRIO3"},
+    {"nome": "PetroReconcavo", "ticker": "RECV3"},
+    {"nome": "Ultrapar",       "ticker": "UGPA3"},
+    {"nome": "Vibra",          "ticker": "VBBR3"},
+    {"nome": "Raizen",         "ticker": "RAIZ4"}
+  ],
+
+  "Locadoras": [
+    {"nome": "Movida",   "ticker": "MOVI3"},
+    {"nome": "Localiza", "ticker": "RENT3"}
+  ],
+
+  "Saude": [
+    {"nome": "Hapvida",   "ticker": "HAPV3"},
+    {"nome": "Rede D'Or", "ticker": "RDOR3"},
+    {"nome": "Mater Dei", "ticker": "MATD3"},
+    {"nome": "SulAmerica", "cnpj": "29.978.814/0001-87",
+     "obs": "incorporada pela Rede D'Or em 2022"}
+  ],
+
+  "Logistics": [
+    {"nome": "Rumo",      "ticker": "RAIL3"},
+    {"nome": "Motiva",    "ticker": "MOTV3", "obs": "ex-CCR"},
+    {"nome": "Hidrovias", "ticker": "HBSA3"}
+  ],
+
+  "Utilities": [
+    {"nome": "Equatorial", "ticker": "EQTL3"},
+    {"nome": "Copel",      "ticker": "CPLE6"},
+    {"nome": "Cemig",      "ticker": "CMIG4"},
+    {"nome": "Sabesp",     "ticker": "SBSP3"},
+    {"nome": "Auren",      "ticker": "AURE3"},
+    {"nome": "Eneva",      "ticker": "ENEV3"},
+    {"nome": "Energisa",   "ticker": "ENGI11"},
+    {"nome": "CPFL",       "ticker": "CPFE3"},
+    {"nome": "Copasa",     "ticker": "CSMG3"},
+    {"nome": "Eletrobras", "ticker": "AXIA3", "cnpj": "00.001.180/0001-26",
+     "obs": "renomeada Axia Energia S.A. em 2025"}
+  ],
+
+  "TMT": [
+    {"nome": "VTEX",      "mercado": "US"},
+    {"nome": "Intelbras", "ticker": "INTB3"},
+    {"nome": "Locaweb",   "ticker": "LWSA3"},
+    {"nome": "TOTVS",     "ticker": "TOTS3"}
+  ]
+}
