@@ -30,18 +30,19 @@ def check_password():
     if st.session_state["authenticated"]:
         return True
 
-    # Tela de Login simplificada
+    # Tela de Login simplificada com suporte a ENTER
     _, col_login, _ = st.columns([1, 2, 1])
     with col_login:
-        senha_input = st.text_input("Senha", type="password", key="password_input")
-        btn_login = st.button("Entrar", use_container_width=True)
+        with st.form("login_form"):
+            senha_input = st.text_input("Senha", type="password", key="password_input")
+            btn_login = st.form_submit_button("Entrar", use_container_width=True)
 
-        if btn_login:
-            if senha_input == senha_correta:
-                st.session_state["authenticated"] = True
-                st.rerun()
-            else:
-                st.error("❌ Senha incorreta. Tente novamente.")
+            if btn_login:
+                if senha_input.strip() == senha_correta.strip():
+                    st.session_state["authenticated"] = True
+                    st.rerun()
+                else:
+                    st.error("❌ Senha incorreta. Tente novamente.")
 
     return False
 
