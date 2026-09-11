@@ -30,14 +30,9 @@ def check_password():
     if st.session_state["authenticated"]:
         return True
 
-    # Tela de Login centralizada
+    # Tela de Login simplificada
     _, col_login, _ = st.columns([1, 2, 1])
     with col_login:
-        st.markdown("<br><br>", unsafe_allow_html=True)
-        st.title("🔒 Acesso Restrito")
-        st.subheader("CVM Remuneração - Monitor de Administradores")
-        st.caption("Insira a senha de acesso para visualizar o dashboard.")
-
         senha_input = st.text_input("Senha", type="password", key="password_input")
         btn_login = st.button("Entrar", use_container_width=True)
 
